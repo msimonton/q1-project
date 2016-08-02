@@ -1,20 +1,16 @@
 
 
-
-$(document).ready(()=> {
-    $.ajax({
-    url:"http://api.edmunds.com/api/vehicle/v2/dodge?fmt=json&api_key=jgv28njxfw5k75t4m5v23mdr",
+    url:"http://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=jgv28njxfw5k75t4m5v23mdr",
     error: function(err)  {
       console.log(err)
     },
     method:'GET',
     success: function(test) {
+      console.log(test)
+    }
+  })
+})
 
-var carList =makies(test)
-console.log(carList)
-
-}
-})})
 // for(var findModels of carList)  {
 //   $.ajax({
 //   url:"'https://api.edmunds.com/api/vehicle/v2/"+[findModels]+"/models?fmt=json&year=1995&api_key=jgv28njxfw5k75t4m5v23mdr",
@@ -46,22 +42,10 @@ console.log(carList)
 
 //  })
 
+//dict.1.1.20160802T162404Z.cce2e7147a9af2e4.939092a875c910b9c74cbf3c45f44d4b10591110
 
 
-  //
-  // $(document).ready(()=> {
-  //     $.ajax({
-  //     url:"https://api.edmunds.com/api/vehicle/v2/styles/7638?fmt=json&api_key=jgv28njxfw5k75t4m5v23mdr&view=full",
-  //     error: function(err)  {
-  //       console.log(err)
-  //     },
-  //
-  //     method:'GET',
-  //     success: function(tester) {
-  //       console.log(tester)
-  //     }
-  //     })
-  //   })
+
 
 
   // $(document).ready(()=> {

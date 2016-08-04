@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Lyric Ad Lib</title>
+    <link type="text/css" rel="stylesheet" href="styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/paper/bootstrap.min.css" rel="stylesheet" integrity="sha384-2mX2PSpkRSXLQzmNzH3gwK6srb06+OfbDlYjbog8LQuALYJjuQ3+Yzy2JIWNV9rW" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
@@ -11,6 +13,12 @@
     <script type="text/javascript" src="jspos/POSTagger.js"></script>
   </head>
   <body>
+    <div class="jumbotron">
+  <h1>Are you Bored?</h1>
+  <p>We're here to help</p>
+
+</div>
+
     <div id="search">
       <form id="search_form">
         <input id="main_search" type="text" placeholder="Enter an artist or song name here">
@@ -18,8 +26,8 @@
       </form>
     </div>
     <div id="search_return">
-      <h3 id="song_name"></h3>
-      <p id="artist"></p>
+      <form id="search_results"></form>
+
     </div>
 
 
@@ -28,7 +36,40 @@
     <h3>Input</h3>
 
     <div id="input_text">
+      What'll you do when you get lonely
+And nobody's waiting by your side?
+You've been running and hiding much too long.
+You know it's just your foolish pride.
 
+Layla, you've got me on my knees.
+Layla, I'm begging, darling please.
+Layla, darling won't you ease my worried mind.
+
+I tried to give you consolation
+When your old man had let you down.
+Like a fool, I fell in love with you,
+Turned my whole world upside down.
+
+Layla, you've got me on my knees.
+Layla, I'm begging, darling please.
+Layla, darling won't you ease my worried mind.
+
+Let's make the best of the situation
+Before I finally go insane.
+Please don't say we'll never find a way
+And tell me all my love's in vain.
+
+Layla, you've got me on my knees.
+Layla, I'm begging, darling please.
+Layla, darling won't you ease my worried mind.
+
+Layla, you've got me on my knees.
+Layla, I'm begging, darling please.
+Layla, darling won't you ease my worried mind.
+
+
+
+Read more: Eric Clapton - Layla Lyrics | MetroLyrics 
     </div>
     <h3>Result</h3>
     <div id="tagged_text"></div>
@@ -42,11 +83,11 @@
     var taggedWord = taggedWords[i];
       for(var j=0;j<taggedWords.length;j+=3)  {
       if(taggedWords[j][1]==="NN")  {
-       taggedWords[j][0]="cat"}
+       taggedWords[j][0]="taco"}
       else if(taggedWords[j][1]==="VBD")  {
-       taggedWords[j][0]="licked"}
+       taggedWords[j][0]="shat"}
       else if(taggedWords[j][1]==="RB")  {
-       taggedWords[j][0]="shittily"}
+       taggedWords[j][0]="sloppily"}
       else if(taggedWords[j][1]==="JJ")  {
        taggedWords[j][0]="smelly"}
       else if(taggedWords[j][1]==="WP")  {

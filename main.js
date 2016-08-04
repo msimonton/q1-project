@@ -2,9 +2,13 @@ $(document).ready(()=> {
   var corsAnywhere="https://cors-anywhere.herokuapp.com/"
   var urlSearch="http://api.lyricsnmusic.com/songs?api_key=a974cb46f8bfe28f1e58995879ee22&q="
 
+
+
   $('form').submit(function(even){
     event.preventDefault();
     var searchItems = $('#main_search').val();
+
+
 
 
     $.ajax({
@@ -12,6 +16,8 @@ $(document).ready(()=> {
       error:function(err) {
         console.log(err)
       },
+
+
 
 
       method:'GET',
@@ -30,16 +36,28 @@ $(document).ready(()=> {
       })
       console.log(searchResults)
 
+
+
+
           for(var i=0; i<10;i++){
-          $('#search_return').append('<h3>'+searchResults[i].title+'</h3>')
-          $('#search_return').append('<span><strong>Artist:</strong> '+searchResults[i].artist.name+'</span>')
+          $('#search_return').append('<div class="resultDivs id="'+(i+1)+'"><h3 class="songNames">'+
+          searchResults[i].title+'</h3> ' +
+          '<span><strong>Artist:</strong> '+
+          searchResults[i].artist.name+'</span><p class="hidden_url">'+searchResults[i].url+'</p></div>')
         }
-        $('h3').click(function()  {
-          this
-        })
+
         }
       })
     })
+
+
+    $('#search_return').click(function(event) {
+      var clickedURL =
+      alert(this.last)
+    })
+
+
+
 
 
   })

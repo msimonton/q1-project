@@ -1,6 +1,5 @@
 body {
   align-items: center;
-  background-color:black;
 }
 
 .jumbotron {
@@ -16,4 +15,25 @@ body {
 #search_return  {
     margin: auto;
   text-align: center;
+}
+
+.resultDivs {
+  margin: auto;
+  margin-top: 20px;
+  background-color: #888989;
+  padding:3px 14px 3px 14px;
+  width: 33%;
+
+}
+.resultDivs:hover{
+  background-color:#EFF0F1;
+}
+.songNames  {
+  padding-top: 0px;
+  margin-top: 0em;
+  margin-bottom: .6em;
+}
+
+.hidden_url {
+  display:none;
 }

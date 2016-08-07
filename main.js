@@ -1,6 +1,7 @@
 $(document).ready(()=> {
+    var findLyrics =""
   var corsAnywhere="https://cors-anywhere.herokuapp.com/"
-  var urlSearch="http://api.lyricsnmusic.com/songs?api_key=a974cb46f8bfe28f1e58995879ee22&q="
+  var urlSearch="http://api.genius.com/search?q="
 
 
 
@@ -16,39 +17,63 @@ $(document).ready(()=> {
       error:function(err) {
         console.log(err)
       },
-
+      beforeSend: function setHeader(xhr) {
+        xhr.setRequestHeader('Authorization', "Bearer clQq5XgB3u6rHDYG3k7zN904TwsDX68DU2LHC6dHEGa532bI15yk41VxV2CNhC8J");
+      },
 
 
 
       method:'GET',
       success:function(searchResults)    {
+        var findLyrics = searchResults.response.hits[0].result.header_image_thumbnail_url
         //for(var i=0; i<10;i++)
-        var removeDuplicates=[];
-        searchResults.sort(function(a,b)  {
-          for(var i=0; i<searchResults.length-1; i++) {
-            if(searchResults[i].artist.name == searchResults[i+1].artist.name && searchResults[i].title == searchResults[i+1].title)  {
-              delete searchResults[i]
-            }
-          }
-          searchResults=searchResults.filter( function(el){
-            return(typeof el !=="undefined")
-          })
-      })
+        // var removeDuplicates=[];
+        // searchResults.sort(function(a,b)  {
+        //   for(var i=0; i<searchResults.length-1; i++) {
+        //     if(searchResults[i].artist.name == searchResults[i+1].artist.name && searchResults[i].title == searchResults[i+1].title)  {
+        //       delete searchResults[i]
+        //     }
+        //   }
+
+          // searchResults=searchResults.filter( function(el){
+          //   return(typeof el !=="undefined")
+          // })
+      // })
       console.log(searchResults)
+      $('#input_text').append('<img src="'+findLyrics+'"</img>')
 
 
 
 
-          for(var i=0; i<10;i++){
-          $('#search_return').append('<div class="resultDivs id="'+(i+1)+'"><h3 class="songNames">'+
-          searchResults[i].title+'</h3> ' +
-          '<span><strong>Artist:</strong> '+
-          searchResults[i].artist.name+'</span><p class="hidden_url">'+searchResults[i].url+'</p></div>')
+          // for(var i=0; i<10;i++){
+          // $('#search_return').append('<div class="resultDivs id="'+(i+1)+'"><h3 class="songNames">'+
+          // searchResults[i].title+'</h3> ' +
+          // '<span><strong>Artist:</strong> '+
+          // searchResults[i].artist.name+'</span><p class="hidden_url">'+searchResults[i].url+'</p></div>')
         }
 
-        }
       })
-    })
+      })
+
+      // function blah(){$.ajax({
+      //   url:"http:http//api.genius.com//Sia-1000-forms-of-fear-tracklist-and-album-artwork-lyrics",
+      //   beforeSend: function setHeader(xhr) {
+      //     xhr.setRequestHeader('Authorization', "Bearer clQq5XgB3u6rHDYG3k7zN904TwsDX68DU2LHC6dHEGa532bI15yk41VxV2CNhC8J");
+      //   },
+      //   error: function(err)  {
+      //     console.log(err)
+      //   },
+      //   method:"GET",
+      //   success: function(lyricResults)  {
+      //     console.log(lyricResults)
+      //   }
+      //
+      //
+      //
+      //
+      // })}
+      // console.log(blah())
+
 
 
     $('.resultDivs').click(function(event) {

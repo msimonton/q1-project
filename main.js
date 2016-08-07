@@ -51,9 +51,8 @@ $(document).ready(()=> {
     })
 
 
-    $('#search_return').click(function(event) {
-      var clickedURL =
-      alert(this.last)
+    $('.resultDivs').click(function(event) {
+      alert(this.url)
     })
 
 
@@ -61,6 +60,13 @@ $(document).ready(()=> {
 
 
   })
+
+
+
+//genius client id = k597dLatMTQuvx8CXxNoCdrgJ6rwzSIz-y--Fv8UXxdHLfU_gi7DOfEEncuOG2He
+//client access token=  clQq5XgB3u6rHDYG3k7zN904TwsDX68DU2LHC6dHEGa532bI15yk41VxV2CNhC8J
+// secret= s-1oLmPlIKFCmTKMSjI7C3mDiX7j76kfa8QX5DljFkNODLxbop-abYHuus4KrCkTcNRAf2Pm1xyzLlE9L1kZfg
+
 
 //https://api.edmunds.com/api/media/v2/{make}/{model}/{year}/photos?api_key=jgv28njxfw5k75t4m5v23mdr&fmt=json
 

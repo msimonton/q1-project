@@ -12,12 +12,19 @@
     <script type="text/javascript" src="jspos/lexicon.js_"></script>
     <script type="text/javascript" src="jspos/POSTagger.js"></script>
   </head>
+
+
+
+
+
   <body>
     <div class="jumbotron">
   <h1>Are you Bored?</h1>
   <p>We're here to help</p>
-
 </div>
+
+
+
 
     <div id="search">
       <form id="search_form">
@@ -25,6 +32,10 @@
         <button type="submit">Find Me Lyrics</button>
       </form>
     </div>
+
+
+
+
     <div id="search_return">
 
     </div>
@@ -32,37 +43,58 @@
 
 
     <h2>Input</h2>
+    <div id="input_text"></div>
+      <div id="hiddenInput">
+        <form id="textPaste">
+        <textarea id="userInputs" name="lyricPaste" rows="10" cols="30">
+        </textarea>
+        <button type="button" name="lyricPaste" id="changeInput">These are my lyrics</button>
+      </form>
+      </div>
 
 
-    <div id="input_text">
 
-    </div>
     <h3>Result</h3>
     <div id="tagged_text"></div>
 
-    <script type="text/javascript">
-    // Note the \ at the end of the first line
-    var words = new Lexer().lex(document.getElementById("input_text").innerHTML);
-    var taggedWords = new POSTagger().tag(words);
-    var result = "";
-    for (i in taggedWords) {
-    var taggedWord = taggedWords[i];
-      for(var j=0;j<taggedWords.length;j+=3)  {
-      if(taggedWords[j][1]==="NN")  {
-       taggedWords[j][0]="taco"}
-      else if(taggedWords[j][1]==="VBD")  {
-       taggedWords[j][0]="shat"}
-      else if(taggedWords[j][1]==="RB")  {
-       taggedWords[j][0]="sloppily"}
-      else if(taggedWords[j][1]==="JJ")  {
-       taggedWords[j][0]="smelly"}
-      else if(taggedWords[j][1]==="WP")  {
-       taggedWords[j][0]="DEEEeez"}}
-      var word = taggedWord[0];
-      var tag = taggedWord[1];
-      result += (word +" ");}
-    document.getElementById("tagged_text").innerHTML = result;
-    </script>
+
+
+   <script type="text/javascript">
+   $('#changeInput').click(function(even){
+     $('#input_text').append($('#userInputs').val())
+
+     var words = new Lexer().lex(document.getElementById("input_text").innerHTML);
+     var taggedWords = new POSTagger().tag(words);
+     var result = "";
+     for (i in taggedWords) {
+     var taggedWord = taggedWords[i];
+       for(var j=0;j<taggedWords.length;j+=3)  {
+       if(taggedWords[j][1]==="NN")  {
+        taggedWords[j][0]="cat"
+       }
+       else if(taggedWords[j][1]==="VBD")  {
+        taggedWords[j][0]="licked"
+       }
+       else if(taggedWords[j][1]==="RB")  {
+        taggedWords[j][0]="shittily"
+       }
+       else if(taggedWords[j][1]==="JJ")  {
+        taggedWords[j][0]="smelly"
+       }
+       else if(taggedWords[j][1]==="WP")  {
+        taggedWords[j][0]="DEEEeez"
+       }
+       }
+       var word = taggedWord[0];
+       var tag = taggedWord[1];
+
+       result += (word +" ");
+     }
+     console.log($("#input_text").val())
+     console.log(taggedWord)
+     $("#tagged_text").append('<p>'+result+'</p>')
+   })
+  </script>
 
   </body>
 

@@ -32,8 +32,21 @@ body {
   padding-top: 0px;
   margin-top: 0em;
   margin-bottom: .6em;
+  display: block;
 }
 
 .hidden_url {
   display:none;
+}
+
+.artistPics {
+  max-width: 20%;
+  display: block;
+  margin: auto;
+
+}
+
+#hiddenInput {
+  display:none;
+  margin: auto;
 }

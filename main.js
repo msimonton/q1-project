@@ -5,7 +5,7 @@ $(document).ready(()=> {
 
 
 
-  $('form').submit(function(even){
+  $('#search_form').submit(function(even){
     event.preventDefault();
     var searchItems = $('#main_search').val();
 
@@ -25,66 +25,54 @@ $(document).ready(()=> {
 
       method:'GET',
       success:function(searchResults)    {
-        var findLyrics = searchResults.response.hits[0].result.header_image_thumbnail_url
-        //for(var i=0; i<10;i++)
-        // var removeDuplicates=[];
-        // searchResults.sort(function(a,b)  {
-        //   for(var i=0; i<searchResults.length-1; i++) {
-        //     if(searchResults[i].artist.name == searchResults[i+1].artist.name && searchResults[i].title == searchResults[i+1].title)  {
-        //       delete searchResults[i]
-        //     }
-        //   }
 
-          // searchResults=searchResults.filter( function(el){
-          //   return(typeof el !=="undefined")
-          // })
-      // })
       console.log(searchResults)
-      $('#input_text').append('<img src="'+findLyrics+'"</img>')
+
+      for(var i=0; i<10;i++){
+        $('#search_return').append('<div class="divResults" resultDivs id="'+(i+1)+'"><a href="'+searchResults.response.hits[i].result.url+'" target="_blank"><img class="artistPics" src="'+searchResults.response.hits[i].result.header_image_thumbnail_url+'"</a><h3 class="songNames">'+searchResults.response.hits[i].result.title+'</h3> ' +
+        '<span><strong>Artist:</strong> '+
+        searchResults.response.hits[i].result.primary_artist.name+'</span></div>')
+
+      }
+      for(var j=0;j<10;j++) {
+        $('#resultdivs'+[j]+'').css('background-image',""+searchResults.response.hits[j].result.header_image_thumbnail_url+"");
+      }
 
 
 
 
-          // for(var i=0; i<10;i++){
-          // $('#search_return').append('<div class="resultDivs id="'+(i+1)+'"><h3 class="songNames">'+
-          // searchResults[i].title+'</h3> ' +
-          // '<span><strong>Artist:</strong> '+
-          // searchResults[i].artist.name+'</span><p class="hidden_url">'+searchResults[i].url+'</p></div>')
-        }
-
-      })
-      })
-
-      // function blah(){$.ajax({
-      //   url:"http:http//api.genius.com//Sia-1000-forms-of-fear-tracklist-and-album-artwork-lyrics",
-      //   beforeSend: function setHeader(xhr) {
-      //     xhr.setRequestHeader('Authorization', "Bearer clQq5XgB3u6rHDYG3k7zN904TwsDX68DU2LHC6dHEGa532bI15yk41VxV2CNhC8J");
-      //   },
-      //   error: function(err)  {
-      //     console.log(err)
-      //   },
-      //   method:"GET",
-      //   success: function(lyricResults)  {
-      //     console.log(lyricResults)
-      //   }
-      //
-      //
-      //
-      //
-      // })}
-      // console.log(blah())
-
-
-
-    $('.resultDivs').click(function(event) {
-      alert(this.url)
-    })
-
-
-
-
+      }})
+        $('#hiddenInput').delay(10000).css({
+        'display': 'block',
+        'margin': 'auto'}).fadeIn(500)
 
   })
+ //   $('#changeInput').click(function(even){
+ //  var inputValues = ('#input_text').value
+ // var words = new Lexer().lex(document.getElementById(inputValues).innerHTML);
+ // var taggedWords = new POSTagger().tag(words);
+ // var result = "";
+ // for (i in taggedWords) {
+ // var taggedWord = taggedWords[i];
+ //   for(var j=0;j<taggedWords.length;j+=3)  {
+ //   if(taggedWords[j][1]==="NN")  {
+ //    taggedWords[j][0]="taco"}
+ //   else if(taggedWords[j][1]==="VBD")  {
+ //    taggedWords[j][0]="swam"}
+ //   else if(taggedWords[j][1]==="RB")  {
+ //    taggedWords[j][0]="sloppily"}
+ //   else if(taggedWords[j][1]==="JJ")  {
+ //    taggedWords[j][0]="smelly"}
+ //   else if(taggedWords[j][1]==="WP")  {
+ //    taggedWords[j][0]="DEEEeez"}}
+ //   var word = taggedWord[0];
+ //   var tag = taggedWord[1];
+ //   result += (word +" ");}
+ // document.getElementById("tagged_text").innerHTML = result;})
+
+
+
+})
 
 
 

@@ -21,6 +21,21 @@
     <div class="jumbotron">
   <h1>Are you Bored?</h1>
   <p>We're here to help</p>
+
+
+
+  <button type="button" id="lyricButton">Find Some Lyrics</button>
+  <button type="button" id="quoteButton">Use a Random Quote</button>
+  <button type="button" id="anyTextButton">Enter Any Text</button>
+</div>
+
+<div id="quoteGenerator">
+  <form id="quotes">
+  <input type='text' name='quoteNoun' class="quoteInputs" placeholder="llama">
+  <input type='text' name='quoteVerbs' class="quoteInputs" placeholder="sing">
+  <input type='text' name='quoteAdj' class="quoteInputs" placeholder="smelly">
+  <button id="quoteWordButton" type="submit">Use These Words</button>
+</form>
 </div>
 
 
@@ -28,27 +43,54 @@
 
     <div id="search">
       <form id="search_form">
-        <input id="main_search" type="text" placeholder="Enter an artist or song name here">
+        <input id="main_search" autocomplete="on" type="text" placeholder="Enter an artist or song name here" autofocus="autofocus">
         <button type="submit">Find Me Lyrics</button>
       </form>
+
+
+
+
+    <div id="search_return"></div>
+
     </div>
 
-
-
-
-    <div id="search_return">
-
+    <div id="userWords">
+      <form id="inputWords">
+        <div id="noun"
+        <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
+        <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
+        <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
+        <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
+        <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
+        <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
+      </div>
+      <div id="verb"
+      <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">
+      <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">
+      <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">
+      <input type='text' name='verb[]' class="verbInputs" placeholder="sing">
+      <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">
+      <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">
     </div>
+    <div id='adj'>
+      <input type='text' name='adjectives[]' class="adjInputs" placeholder="smelly">
+      <input type='text' name='adjectives[]' class="adjInputs" placeholder="smelly">
+      <input type='text' name='adjectives[]' class="adjInputs" placeholder="smelly">
+      <input type='text' name='adjectives[]' class="adjInputs" placeholder="smelly">
+    </div>
+    <button id="userWordsSubmit" type="button">Use These Words!</button>
+  </form>
+</div>
 
 
 
     <h2>Input</h2>
-    <div id="input_text"></div>
+    <div id="input_texts"></div>
       <div id="hiddenInput">
         <form id="textPaste">
         <textarea id="userInputs" name="lyricPaste" rows="10" cols="30">
         </textarea>
-        <button type="button" name="lyricPaste" id="changeInput">These are my lyrics</button>
+        <button type="button" name="lyricPaste" id="changeInput" required>These are my lyrics</button>
       </form>
       </div>
 
@@ -58,9 +100,8 @@
     <div id="tagged_text"></div>
 
 
-
-   <script type="text/javascript">
-   $('#changeInput').click(function(even){
+  <!--    <script type="text/javascript">
+$('#changeInput').click(function(even){
      $('#input_text').append($('#userInputs').val())
 
      var words = new Lexer().lex(document.getElementById("input_text").innerHTML);
@@ -95,6 +136,8 @@
      $("#tagged_text").append('<p>'+result+'</p>')
    })
   </script>
+-->
+
 
   </body>
 

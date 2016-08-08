@@ -8,8 +8,13 @@ body {
 }
 
 #search {
+  display: none;
   margin: auto;
   text-align: center;
+}
+
+#quoteGenerator {
+  display:none;
 }
 
 #search_return  {
@@ -50,3 +55,25 @@ body {
   display:none;
   margin: auto;
 }
+#inputWords  {
+  display: none;
+}
+#noun {
+  display:inline-block;
+}
+.nounInputs {
+  display: block;
+}
+#verb {
+  display: inline-block;
+}
+.verbInputs {
+  display: block;
+}
+#adj  {
+  display: inline-block;
+}
+.adjInputs  {
+  display: block;
+}
+/* types of words, frequency slider*\

@@ -4,6 +4,36 @@ $(document).ready(()=> {
   var urlSearch="http://api.genius.com/search?q="
 
 
+  $('#lyricButton').click(function()  {
+    $('#search').css('display', 'block')
+  })
+
+  $('#quoteButton').click(function(){
+    $('#quoteGenerator').css('display','block')
+})
+
+  $('#quoteWordButton').submit()
+
+  $('#anyTextButton').click(function(even)  {
+    event.preventDefault();
+    $.ajax({
+      url:corsAnywhere+"http://api.forismatic.com/api/1.0/",
+      format:json,
+      method:"getQuote",
+      lang:'en',
+      error:function(errs)  {
+        console.log(errs)
+      },
+      success: function(quoteResults) {
+        console.log(quoteResults)
+      }
+    })
+
+    $('#hiddenInput').delay(10000).css({
+    'display': 'block',
+    'margin': 'auto'}).fadeIn(500)
+  })
+
 
   $('#search_form').submit(function(even){
     event.preventDefault();
@@ -47,32 +77,69 @@ $(document).ready(()=> {
         'margin': 'auto'}).fadeIn(500)
 
   })
- //   $('#changeInput').click(function(even){
- //  var inputValues = ('#input_text').value
- // var words = new Lexer().lex(document.getElementById(inputValues).innerHTML);
- // var taggedWords = new POSTagger().tag(words);
- // var result = "";
- // for (i in taggedWords) {
- // var taggedWord = taggedWords[i];
- //   for(var j=0;j<taggedWords.length;j+=3)  {
- //   if(taggedWords[j][1]==="NN")  {
- //    taggedWords[j][0]="taco"}
- //   else if(taggedWords[j][1]==="VBD")  {
- //    taggedWords[j][0]="swam"}
- //   else if(taggedWords[j][1]==="RB")  {
- //    taggedWords[j][0]="sloppily"}
- //   else if(taggedWords[j][1]==="JJ")  {
- //    taggedWords[j][0]="smelly"}
- //   else if(taggedWords[j][1]==="WP")  {
- //    taggedWords[j][0]="DEEEeez"}}
- //   var word = taggedWord[0];
- //   var tag = taggedWord[1];
- //   result += (word +" ");}
- // document.getElementById("tagged_text").innerHTML = result;})
+  $('#changeInput').click(function(even){
+    $('#input_texts').append($('#userInputs').val());
+    $("#inputWords").css({
+      'display': 'block'
+    })
+
+  })
+
+  $('#userWordsSubmit').click(function(){
+      var adjValues=$("input[name='adjectives\\[\\]']").map(function(){
+        return $(this).val();}).get();
+      var nounValues=$("input[name='nouns\\[\\]']").map(function(){
+        return $(this).val();}).get();
+      var verbValues=$("input[name='verbs\\[\\]']").map(function(){
+          return $(this).val();}).get();
+
+          $("#hiddenInput").css({
+            'display': 'none'
+          })
+
+          $('#input_texts').attr('id',"input_text")
+
+          var words = new Lexer().lex(document.getElementById("input_text").innerHTML);
+          var taggedWords = new POSTagger().tag(words);
+          var result = "";
+          for (i in taggedWords) {
+            var taggedWord = taggedWords[i];
+            var j, m;
+            for(j=0, m=0;j<taggedWords.length, m<60;j+=3, m++)  {
+
+              if(taggedWords[j][1]==="NN")  {
+                taggedWords[j][0]=nounValues[m]
+              }
+              else if(taggedWords[j][1]==="VBD")  {
+                taggedWords[j][0]=verbValues[m]
+              }
+              else if(taggedWords[j][1]==="RB")  {
+                taggedWords[j][0]="shittily"
+              }
+              else if(taggedWords[j][1]==="JJ")  {
+                taggedWords[j][0]=adjValues[m]
+              }
+              else if(taggedWords[j][1]==="WP")  {
+                taggedWords[j][0]="DEEEeez"
+              }
+            }
+            var word = taggedWord[0];
+            var tag = taggedWord[1];
+
+            result += (word +" ");
+          }
+          console.log($("#input_text").val())
+          console.log(taggedWord)
+          $("#tagged_text").append('<p>'+result+'</p>')
+
+console.log(adjValues);
+console.log(nounValues);
+console.log(verbValues);
+});
+
+  })
 
 
-
-})
 
 
 

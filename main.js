@@ -19,7 +19,12 @@ $(document).ready(()=> {
     $('#hiddenInput').delay(10000).css({
     'display': 'inline-block',
     'float':'left',
-    'margin': 'auto'}).fadeIn(500)
+    'margin': 'auto'}).fadeIn(2000);
+    $('#lyricInstructions').css('display','none')
+    $('html, body').animate({
+      scrollTop: $("#userInputs").offset().top
+    }, 2000);
+
 
   })
   $('#changeInput').click(function(even){
@@ -51,9 +56,6 @@ $(document).ready(()=> {
   $('#search_form').submit(function(even){
     event.preventDefault();
     var searchItems = $('#main_search').val();
-    $('html, body').animate({
-        scrollTop: $("#changeInput").offset().top
-    }, 2000);
 
 
 
@@ -66,8 +68,6 @@ $(document).ready(()=> {
       beforeSend: function setHeader(xhr) {
         xhr.setRequestHeader('Authorization', "Bearer clQq5XgB3u6rHDYG3k7zN904TwsDX68DU2LHC6dHEGa532bI15yk41VxV2CNhC8J");
       },
-
-
 
       method:'GET',
       success:function(searchResults)    {
@@ -90,16 +90,23 @@ $(document).ready(()=> {
 
       }})
         $('#hiddenInput').delay(10000).css({
-        'display': 'inline-block',
-        'float':'left',
+        'display': 'inline',
+        "align-item":"center",
+
         'margin': 'auto'}).fadeIn(500)
 
+        $('html, body').animate({
+          scrollTop: $("#changeInput").offset().top
+        }, 2000);
   })
   $('#changeInput').click(function(even){
     $('#input_texts').append($('#userInputs').val());
     $("#userWords").css({
-      'display': 'block'
+      'display': 'block',
+      "margin":"auto"
     })
+    $('#resultTitle').css('display','block')
+
     $('html, body').animate({
         scrollTop: $("#userWords").offset().top
     }, 2000);
@@ -111,6 +118,11 @@ $(document).ready(()=> {
     $('html, body').animate({
         scrollTop: $("#tagged_text").offset().top
     }, 2000);
+
+
+
+
+
           $("#tagged_text").empty();
           $('#input_texts').attr('id',"input_text")
 
@@ -124,20 +136,22 @@ $(document).ready(()=> {
             var words = new Lexer().lex(document.getElementById("input_text").innerHTML);
             var taggedWords = new POSTagger().tag(words);
             var result = "";
+            var m=0;
+            console.log(nounValues)
+
             for (i in taggedWords) {
             var taggedWord = taggedWords[i];
               for(var j=0;j<taggedWords.length;j+=3)  {
               if(taggedWords[j][1]==="NN")  {
-               taggedWords[j][0]=nounValues
+                var noun= Math.floor(Math.random()*nounValues.length)
+               taggedWords[j][0]=noun
+
               }
               else if(taggedWords[j][1]==="VBD")  {
                taggedWords[j][0]=verbValue
               }
               else if(taggedWords[j][1]==="JJ")  {
                taggedWords[j][0]=adjValues
-              }
-              else if(taggedWords[j][1]==="WP")  {
-               taggedWords[j][0]="DEEEeez"
               }
               }
               var word = taggedWord[0];
@@ -150,24 +164,3 @@ $(document).ready(()=> {
 });
 
   })
-
-
-
-
-
-//genius client id = k597dLatMTQuvx8CXxNoCdrgJ6rwzSIz-y--Fv8UXxdHLfU_gi7DOfEEncuOG2He
-//client access token=  clQq5XgB3u6rHDYG3k7zN904TwsDX68DU2LHC6dHEGa532bI15yk41VxV2CNhC8J
-// secret= s-1oLmPlIKFCmTKMSjI7C3mDiX7j76kfa8QX5DljFkNODLxbop-abYHuus4KrCkTcNRAf2Pm1xyzLlE9L1kZfg
-
-
-//https://api.edmunds.com/api/media/v2/{make}/{model}/{year}/photos?api_key=jgv28njxfw5k75t4m5v23mdr&fmt=json
-
-
-
-
-
-//a974cb46f8bfe28f1e58995879ee22
-
-  //53z8gsmpx9yqy9fran5r8y44
-  //jgv28njxfw5k75t4m5v23mdr
-//

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Lyric Ad Lib</title>
+    <title>Mad Lyrics</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/paper/bootstrap.min.css" rel="stylesheet" integrity="sha384-2mX2PSpkRSXLQzmNzH3gwK6srb06+OfbDlYjbog8LQuALYJjuQ3+Yzy2JIWNV9rW" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="styles.css">
 
@@ -20,7 +20,8 @@
 <body>
   <header class="jumbotron">
   <h1>Are you Bored?</h1>
-  <p>We're here to help</p>
+  <h2>We're here to help</h2>
+  <p>Select from one of these choices to start creating new mad libs</p>
 
 
 
@@ -36,30 +37,30 @@
     <div id="search">
       <form id="search_form">
         <input id="main_search" autocomplete="on" type="text" placeholder="Enter an artist or song name here" autofocus="autofocus">
-        <button type="submit">Find Me Lyrics</button>
+        <button id="searchButton" type="submit">Find Me Lyrics</button>
       </form>
-
-
-
-
-
 
     </div>
 
 
 
 
-    <h2>Input</h2>
-    <div id="input_texts"></div>
+
+
       <div id="hiddenInput">
+        <h3 class='titles'>Paste Your Lyrics Here</h3>
         <form id="textPaste">
         <textarea id="userInputs" name="lyricPaste" rows="3" cols="680" placeholder="Just paste your content here and lets have some fun">
         </textarea>
         <button type="button" name="lyricPaste" id="changeInput" required>Next: Choose Some Words</button>
       </form>
+      <h3 class='titles' id="lyricInstructions">Click The Link To Get The Lyrics For Disired Song And Copy Them. Then Come Back For The Fun Part</h3>
       </div>
+
+
+
       <div id="search_return"></div>
-      <div id="quoteGenerator">
+        <div id="quoteGenerator">
         <form id="quotes">
           <input type='text' name='quoteNoun' class="quoteInputs" placeholder="llama">
           <input type='text' name='quoteVerbs' class="quoteInputs" placeholder="sing">
@@ -70,76 +71,38 @@
 
       <div id="userWords">
         <form id="inputWords">
-          <div id="noun"
+          <div id="noun"><h4>Noun</h4>
+            <input type='text' name='nouns[]' class="nounInputs" placeholder="Example: llama">
+          <!--  <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
             <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
-            <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
-        <!--  <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
             <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
             <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">
             <input type='text' name='nouns[]' class="nounInputs" placeholder="llama">-->
         </div>
-       <div id="verb"
-            <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">
-          <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">
+       <div id="verb"><h4>Verb</h4>
+            <input type='text' name='verbs[]' class="verbInputs" placeholder="Example: sing">
         <!--  <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">
+          <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">
           <input type='text' name='verb[]' class="verbInputs" placeholder="sing">
           <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">
           <input type='text' name='verbs[]' class="verbInputs" placeholder="sing">-->
       </div>
-      <div id='adj'>
-        <input type='text' name='adjectives[]' class="adjInputs" placeholder="smelly">
+      <div id='adj'><h4>Adjective</h4>
+       <input type='text' name='adjectives[]' class="adjInputs" placeholder="Example: smelly">
       <!--  <input type='text' name='adjectives[]' class="adjInputs" placeholder="smelly">
         <input type='text' name='adjectives[]' class="adjInputs" placeholder="smelly">
         <input type='text' name='adjectives[]' class="adjInputs" placeholder="smelly">-->
     </div>
       <button id="userWordsSubmit" type="button">Use These Words! </button>
-</form>
-</div>
+    </form>
+  </div>
 
 
-    <h3>Result</h3>
+    <div id="input_texts"></div>
+    <h3 id='resultTitle'>How It Should Have Been Written</h3>
     <div id="tagged_text"></div>
 
-
-  <!--    <script type="text/javascript">
-$('#changeInput').click(function(even){
-     $('#input_text').append($('#userInputs').val())
-
-     var words = new Lexer().lex(document.getElementById("input_text").innerHTML);
-     var taggedWords = new POSTagger().tag(words);
-     var result = "";
-     for (i in taggedWords) {
-     var taggedWord = taggedWords[i];
-       for(var j=0;j<taggedWords.length;j+=3)  {
-       if(taggedWords[j][1]==="NN")  {
-        taggedWords[j][0]="cat"
-       }
-       else if(taggedWords[j][1]==="VBD")  {
-        taggedWords[j][0]="licked"
-       }
-       else if(taggedWords[j][1]==="RB")  {
-        taggedWords[j][0]="shittily"
-       }
-       else if(taggedWords[j][1]==="JJ")  {
-        taggedWords[j][0]="smelly"
-       }
-       else if(taggedWords[j][1]==="WP")  {
-        taggedWords[j][0]="DEEEeez"
-       }
-       }
-       var word = taggedWord[0];
-       var tag = taggedWord[1];
-
-       result += (word +" ");
-     }
-     console.log($("#input_text").val())
-     console.log(taggedWord)
-     $("#tagged_text").append('<p>'+result+'</p>')
-   })
-  </script>
--->
-
-</div>
-  </body>
+  </div>
+</body>
 
 </html>

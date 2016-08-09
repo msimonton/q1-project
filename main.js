@@ -51,6 +51,9 @@ $(document).ready(()=> {
   $('#search_form').submit(function(even){
     event.preventDefault();
     var searchItems = $('#main_search').val();
+    $('html, body').animate({
+        scrollTop: $("#changeInput").offset().top
+    }, 2000);
 
 
 
@@ -104,10 +107,10 @@ $(document).ready(()=> {
 
   $('#userWordsSubmit').click(function(){
 
-          $("#hiddenInput").css({
-            'display': 'none'
-          })
 
+    $('html, body').animate({
+        scrollTop: $("#tagged_text").offset().top
+    }, 2000);
           $("#tagged_text").empty();
           $('#input_texts').attr('id',"input_text")
 
@@ -143,7 +146,7 @@ $(document).ready(()=> {
               result += (word +" ");
           }
           console.log(word)
-          $("#tagged_text").append('<p>'+result+'</p>')
+          $("#tagged_text").append('<p id="finalResults">'+result+'</p>')
 });
 
   })

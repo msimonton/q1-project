@@ -26,6 +26,13 @@ body {
   box-shadow: 4px 4px 7px #5F5F5F;
 }
 
+#main_search  {
+  margin-top: 20px;
+  color: black;
+  background-color: #F3843D;
+  border-radius: 3px;
+  color: black;
+}
 
 #search {
   display: none;
@@ -33,13 +40,14 @@ body {
   text-align: center;
 }
 
-#input_texts {
+#input_texts, #input_text {
   color: black;
   margin: auto;
   width: 70%;
   background-color: #D4D4D4;
   margin-bottom: 20px;
   border-radius: 3px;
+  box-shadow: 4px 4px 7px #5F5F5F;
 
 }
 
@@ -147,8 +155,17 @@ textarea  {
 .adjInputs  {
   display: block;
 }
-
-#tagged_text  {
+#finalResults {
+  margin:auto;
+  width:80%;
   background-color: #D4D4D4;
+  border-radius: 4px;
+  box-shadow: 4px 4px 7px #5F5F5F;
+  margin-bottom:30px;
+
+}
+#tagged_text  {
+  margin:auto;
+  width: 90%
 }
 /* types of words, frequency slider*\

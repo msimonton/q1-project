@@ -9,18 +9,23 @@ $(document).ready(()=> {
   })
 
   $('#quoteButton').click(function(){
-    $('#quoteGenerator').css('display','block')
+    $('#quotes').css('display','block')
 })
 
-  $('#quoteWordButton').submit()
 
-  $('#anyTextButton').click(function(even)  {
+  $('#anyTextButton').click(function(){
+    $('#hiddenInput').delay(10000).css({
+      'display': 'block',
+      'margin': 'auto'}).fadeIn(500)
+
+  })
+
+  $('#quoteWordButton').submit(function()  {
     event.preventDefault();
     $.ajax({
       url:corsAnywhere+"http://api.forismatic.com/api/1.0/",
-      format:json,
-      method:"getQuote",
-      lang:'en',
+      format:'json',
+      method:"GET",
       error:function(errs)  {
         console.log(errs)
       },
@@ -29,9 +34,6 @@ $(document).ready(()=> {
       }
     })
 
-    $('#hiddenInput').delay(10000).css({
-    'display': 'block',
-    'margin': 'auto'}).fadeIn(500)
   })
 
 
@@ -86,55 +88,55 @@ $(document).ready(()=> {
   })
 
   $('#userWordsSubmit').click(function(){
-      var adjValues=$("input[name='adjectives\\[\\]']").map(function(){
-        return $(this).val();}).get();
-      var nounValues=$("input[name='nouns\\[\\]']").map(function(){
-        return $(this).val();}).get();
-      var verbValues=$("input[name='verbs\\[\\]']").map(function(){
-          return $(this).val();}).get();
 
           $("#hiddenInput").css({
             'display': 'none'
           })
 
           $('#input_texts').attr('id',"input_text")
+          var adjValues=$("input[name='adjectives\\[\\]']").map(function(){
+            return $(this).val();}).get();
+            var nounValues=$("input[name='nouns\\[\\]']").map(function(){
+              return $(this).val();}).get();
+              var verbValues=$("input[name='verbs\\[\\]']").map(function(){
+                return $(this).val();}).get
+                for (p in nounValues) {
+
+                }
 
           var words = new Lexer().lex(document.getElementById("input_text").innerHTML);
           var taggedWords = new POSTagger().tag(words);
           var result = "";
+          var word="";
+          var tags=[];
           for (i in taggedWords) {
             var taggedWord = taggedWords[i];
-            var j, m;
-            for(j=0, m=0;j<taggedWords.length, m<60;j+=3, m++)  {
-
-              if(taggedWords[j][1]==="NN")  {
-                taggedWords[j][0]=nounValues[m]
-              }
-              else if(taggedWords[j][1]==="VBD")  {
-                taggedWords[j][0]=verbValues[m]
-              }
-              else if(taggedWords[j][1]==="RB")  {
-                taggedWords[j][0]="shittily"
-              }
-              else if(taggedWords[j][1]==="JJ")  {
-                taggedWords[j][0]=adjValues[m]
-              }
-              else if(taggedWords[j][1]==="WP")  {
-                taggedWords[j][0]="DEEEeez"
-              }
-            }
-            var word = taggedWord[0];
+            var j='';
+            var m='';
+            // for(j=0,m=0;m<7,j<taggedWords.length;j++,m++)  {
+            //
+            //   if(taggedWords[j][1]==="NN")  {
+            //     taggedWords[j][0]=nounValues[j]
+            //   }
+            //   else if(taggedWords[j][1]==="VBD")  {
+            //     taggedWords[j][0]=verbValues[m]
+            //   }
+            //   else if(taggedWords[j][1]==="RB")  {
+            //     taggedWords[j][0]="shittily"
+            //   }
+            //   else if(taggedWords[j][1]==="JJ")  {
+            //     taggedWords[j][0]=adjValues[m]
+            //   }
+            //   else if(taggedWords[j][1]==="WP")  {
+            //     taggedWords[j][0]="DEEEeez"
+            //   }
+            // }
+             word = taggedWord[0];
             var tag = taggedWord[1];
-
-            result += (word +" ");
+            result += (word +tag+" ");
           }
-          console.log($("#input_text").val())
-          console.log(taggedWord)
+          console.log(word)
           $("#tagged_text").append('<p>'+result+'</p>')
-
-console.log(adjValues);
-console.log(nounValues);
-console.log(verbValues);
 });
 
   })

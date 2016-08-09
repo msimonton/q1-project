@@ -1,11 +1,30 @@
 body {
+  background-color: #6E6E6E;
   align-items: center;
 }
 
 .jumbotron {
   margin:auto;
   text-align: center;
+  background-color: #393939;
 }
+.jumbotron h1  {
+  color:#dbdbdb;
+}
+
+.jumbotron p  {
+  color:#dbdbdb;
+}
+
+#lyricButton, #quoteButton, #anyTextButton, #changeInput  {
+  background-color: #FF5A0A;
+  border: 1px solid grey;
+  border-radius: 4px;
+  color: black;
+  font-size: 20px;
+  box-shadow: 4px 4px 7px #5F5F5F;
+}
+
 
 #search {
   display: none;
@@ -21,6 +40,8 @@ body {
     margin: auto;
   text-align: center;
 }
+
+
 
 .resultDivs {
   margin: auto;
@@ -51,9 +72,25 @@ body {
 
 }
 
+#changeInput  {
+  display: block;
+  margin: auto;
+}
+textarea  {
+  width: 25%;
+  height: auto;
+  box-shadow: 4px 4px 7px #5F5F5F;
+}
+
+#userInputs {
+  background-color: #F3843D;
+  border-radius: 12px;
+  color: black;
+}
 #hiddenInput {
   display:none;
   margin: auto;
+  text-align: center;
 }
 #inputWords  {
   display: none;

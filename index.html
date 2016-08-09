@@ -17,8 +17,8 @@
 
 
 
-  <body>
-    <div class="jumbotron">
+<body>
+  <header class="jumbotron">
   <h1>Are you Bored?</h1>
   <p>We're here to help</p>
 
@@ -27,8 +27,8 @@
   <button type="button" id="lyricButton">Find Some Lyrics</button>
   <button type="button" id="quoteButton">Use a Random Quote</button>
   <button type="button" id="anyTextButton">Enter Any Text</button>
-</div>
-
+</header>
+<div id="mainContainer">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-    <div id="search_return"></div>
+
 
     </div>
 
@@ -53,11 +53,12 @@
     <div id="input_texts"></div>
       <div id="hiddenInput">
         <form id="textPaste">
-        <textarea id="userInputs" name="lyricPaste" rows="10" cols="80" placeholder="Just paste your content here and lets have some fun">
+        <textarea id="userInputs" name="lyricPaste" rows="3" cols="680" placeholder="Just paste your content here and lets have some fun">
         </textarea>
         <button type="button" name="lyricPaste" id="changeInput" required>Next: Choose Some Words</button>
       </form>
       </div>
+      <div id="search_return"></div>
       <div id="quoteGenerator">
         <form id="quotes">
           <input type='text' name='quoteNoun' class="quoteInputs" placeholder="llama">
@@ -138,7 +139,7 @@ $('#changeInput').click(function(even){
   </script>
 -->
 
-
+</div>
   </body>
 
 </html>

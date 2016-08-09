@@ -14,9 +14,20 @@ $(document).ready(()=> {
 
 
   $('#anyTextButton').click(function(){
+    $("#search").css('display','none')
+    $('#search_return').empty()
     $('#hiddenInput').delay(10000).css({
-      'display': 'block',
-      'margin': 'auto'}).fadeIn(500)
+    'display': 'inline-block',
+    'float':'left',
+    'margin': 'auto'}).fadeIn(500)
+
+  })
+  $('#changeInput').click(function(even){
+  $('#input_texts').append($('#userInputs').val());
+  $("#inputWords").css({
+  'display': 'block'
+  })
+
 
   })
 
@@ -59,14 +70,15 @@ $(document).ready(()=> {
       success:function(searchResults)    {
 
       console.log(searchResults)
+      $('#search_return').empty()
 
-      for(var i=0; i<10;i++){
+      for(var i=0; i<9;i++){
         $('#search_return').append('<div class="divResults" resultDivs id="'+(i+1)+'"><a href="'+searchResults.response.hits[i].result.url+'" target="_blank"><img class="artistPics" src="'+searchResults.response.hits[i].result.header_image_thumbnail_url+'"</a><h3 class="songNames">'+searchResults.response.hits[i].result.title+'</h3> ' +
-        '<span><strong>Artist:</strong> '+
+        '<span class ="artistNames"><strong>Artist:</strong> '+
         searchResults.response.hits[i].result.primary_artist.name+'</span></div>')
 
       }
-      for(var j=0;j<10;j++) {
+      for(var j=0;j<9;j++) {
         $('#resultdivs'+[j]+'').css('background-image',""+searchResults.response.hits[j].result.header_image_thumbnail_url+"");
       }
 
@@ -75,7 +87,8 @@ $(document).ready(()=> {
 
       }})
         $('#hiddenInput').delay(10000).css({
-        'display': 'block',
+        'display': 'inline-block',
+        'float':'left',
         'margin': 'auto'}).fadeIn(500)
 
   })
@@ -84,7 +97,9 @@ $(document).ready(()=> {
     $("#inputWords").css({
       'display': 'block'
     })
-
+    $('html, body').animate({
+        scrollTop: $("#userWords").offset().top
+    }, 2000);
   })
 
   $('#userWordsSubmit').click(function(){

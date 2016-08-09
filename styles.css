@@ -41,14 +41,25 @@ body {
   text-align: center;
 }
 
+a{
+  padding: 5px 5px 5px 5px;
+}
+.divResults {
+  margin: auto;
+  padding:10px 10px 10px 10px;
+  width: 33%;
+  display: inline-block;
+}
 
-
+#1{
+  width: 20%
+}
 .resultDivs {
   margin: auto;
   margin-top: 20px;
   background-color: #888989;
   padding:3px 14px 3px 14px;
-  width: 33%;
+  width: 10%;
 
 }
 .resultDivs:hover{
@@ -59,6 +70,11 @@ body {
   margin-top: 0em;
   margin-bottom: .6em;
   display: block;
+  font-size: 24px;
+}
+
+.artistNames{
+  font-size: 18;
 }
 
 .hidden_url {
@@ -66,9 +82,11 @@ body {
 }
 
 .artistPics {
-  max-width: 20%;
+  max-width: 100%;
   display: block;
+  margin-top: 14px;
   margin: auto;
+
 
 }
 
@@ -77,7 +95,7 @@ body {
   margin: auto;
 }
 textarea  {
-  width: 25%;
+  width: 35%;
   height: auto;
   box-shadow: 4px 4px 7px #5F5F5F;
 }

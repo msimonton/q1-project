@@ -143,9 +143,7 @@ $(document).ready(()=> {
             var taggedWord = taggedWords[i];
               for(var j=0;j<taggedWords.length;j+=3)  {
               if(taggedWords[j][1]==="NN")  {
-                var noun= Math.floor(Math.random()*nounValues.length)
-               taggedWords[j][0]=noun
-
+               taggedWords[j][0]=nounValues
               }
               else if(taggedWords[j][1]==="VBD")  {
                taggedWords[j][0]=verbValue

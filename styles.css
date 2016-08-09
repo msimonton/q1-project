@@ -33,10 +33,14 @@ body {
   text-align: center;
 }
 
-#input_Texts {
+#input_texts {
   color: black;
+  margin: auto;
   width: 70%;
-  background-color: #EFF0F1;
+  background-color: #D4D4D4;
+  margin-bottom: 20px;
+  border-radius: 3px;
+
 }
 
 #quoteGenerator {
@@ -99,10 +103,12 @@ a{
 
 #changeInput  {
   display: block;
+  margin-bottom: 15px;
   margin: auto;
+
 }
 textarea  {
-  width: 35%;
+  width: 40%;
   height: auto;
   box-shadow: 4px 4px 7px #5F5F5F;
 }
@@ -112,7 +118,7 @@ textarea  {
 }
 #userInputs {
   background-color: #F3843D;
-  border-radius: 12px;
+  border-radius: 6px;
   color: black;
 }
 #hiddenInput {
@@ -140,5 +146,9 @@ textarea  {
 }
 .adjInputs  {
   display: block;
+}
+
+#tagged_text  {
+  background-color: #D4D4D4;
 }
 /* types of words, frequency slider*\

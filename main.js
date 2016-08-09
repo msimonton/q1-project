@@ -108,7 +108,9 @@ $(document).ready(()=> {
             'display': 'none'
           })
 
+          $("#tagged_text").empty();
           $('#input_texts').attr('id',"input_text")
+
           var adjValues=$("input[name='adjectives\\[\\]']").map(function(){
             return $(this).val();}).get();
           var nounValues=$("input[name='nouns\\[\\]']").map(function(){
@@ -123,16 +125,13 @@ $(document).ready(()=> {
             var taggedWord = taggedWords[i];
               for(var j=0;j<taggedWords.length;j+=3)  {
               if(taggedWords[j][1]==="NN")  {
-               taggedWords[j][0]='hello'
+               taggedWords[j][0]=nounValues
               }
               else if(taggedWords[j][1]==="VBD")  {
                taggedWords[j][0]=verbValue
               }
-              else if(taggedWords[j][1]==="RB")  {
-               taggedWords[j][0]="shittily"
-              }
               else if(taggedWords[j][1]==="JJ")  {
-               taggedWords[j][0]="hello"
+               taggedWords[j][0]=adjValues
               }
               else if(taggedWords[j][1]==="WP")  {
                taggedWords[j][0]="DEEEeez"

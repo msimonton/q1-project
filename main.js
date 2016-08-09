@@ -94,7 +94,7 @@ $(document).ready(()=> {
   })
   $('#changeInput').click(function(even){
     $('#input_texts').append($('#userInputs').val());
-    $("#inputWords").css({
+    $("#userWords").css({
       'display': 'block'
     })
     $('html, body').animate({
@@ -111,44 +111,37 @@ $(document).ready(()=> {
           $('#input_texts').attr('id',"input_text")
           var adjValues=$("input[name='adjectives\\[\\]']").map(function(){
             return $(this).val();}).get();
-            var nounValues=$("input[name='nouns\\[\\]']").map(function(){
-              return $(this).val();}).get();
-              var verbValues=$("input[name='verbs\\[\\]']").map(function(){
-                return $(this).val();}).get
-                for (p in nounValues) {
+          var nounValues=$("input[name='nouns\\[\\]']").map(function(){
+            return $(this).val();}).get();
+          var verbValue=$("input[name='verbs\\[\\]']").map(function(){
+            return $(this).val();}).get();
 
-                }
-
-          var words = new Lexer().lex(document.getElementById("input_text").innerHTML);
-          var taggedWords = new POSTagger().tag(words);
-          var result = "";
-          var word="";
-          var tags=[];
-          for (i in taggedWords) {
+            var words = new Lexer().lex(document.getElementById("input_text").innerHTML);
+            var taggedWords = new POSTagger().tag(words);
+            var result = "";
+            for (i in taggedWords) {
             var taggedWord = taggedWords[i];
-            var j='';
-            var m='';
-            // for(j=0,m=0;m<7,j<taggedWords.length;j++,m++)  {
-            //
-            //   if(taggedWords[j][1]==="NN")  {
-            //     taggedWords[j][0]=nounValues[j]
-            //   }
-            //   else if(taggedWords[j][1]==="VBD")  {
-            //     taggedWords[j][0]=verbValues[m]
-            //   }
-            //   else if(taggedWords[j][1]==="RB")  {
-            //     taggedWords[j][0]="shittily"
-            //   }
-            //   else if(taggedWords[j][1]==="JJ")  {
-            //     taggedWords[j][0]=adjValues[m]
-            //   }
-            //   else if(taggedWords[j][1]==="WP")  {
-            //     taggedWords[j][0]="DEEEeez"
-            //   }
-            // }
-             word = taggedWord[0];
-            var tag = taggedWord[1];
-            result += (word +tag+" ");
+              for(var j=0;j<taggedWords.length;j+=3)  {
+              if(taggedWords[j][1]==="NN")  {
+               taggedWords[j][0]='hello'
+              }
+              else if(taggedWords[j][1]==="VBD")  {
+               taggedWords[j][0]=verbValue
+              }
+              else if(taggedWords[j][1]==="RB")  {
+               taggedWords[j][0]="shittily"
+              }
+              else if(taggedWords[j][1]==="JJ")  {
+               taggedWords[j][0]="hello"
+              }
+              else if(taggedWords[j][1]==="WP")  {
+               taggedWords[j][0]="DEEEeez"
+              }
+              }
+              var word = taggedWord[0];
+              var tag = taggedWord[1];
+
+              result += (word +" ");
           }
           console.log(word)
           $("#tagged_text").append('<p>'+result+'</p>')

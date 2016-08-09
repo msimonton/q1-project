@@ -1,6 +1,7 @@
 body {
   background-color: #6E6E6E;
   align-items: center;
+  color: black;
 }
 
 .jumbotron {
@@ -30,6 +31,12 @@ body {
   display: none;
   margin: auto;
   text-align: center;
+}
+
+#input_Texts {
+  color: black;
+  width: 70%;
+  background-color: #EFF0F1;
 }
 
 #quoteGenerator {
@@ -99,7 +106,10 @@ textarea  {
   height: auto;
   box-shadow: 4px 4px 7px #5F5F5F;
 }
-
+#userWords  {
+  display: none;
+  margin: auto;
+}
 #userInputs {
   background-color: #F3843D;
   border-radius: 12px;

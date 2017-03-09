@@ -114,7 +114,7 @@ $(document).ready(()=> {
 
   $('#userWordsSubmit').click(function(){
 
-
+    $('#resultTitle2').attr('id','resultTitle3')
     $('html, body').animate({
         scrollTop: $("#tagged_text").offset().top
     }, 2000);

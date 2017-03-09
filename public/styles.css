@@ -170,6 +170,7 @@ textarea  {
   display: none;
   margin: auto;
   align-content: center;
+  margin-bottom: 20px;
 }
 #noun {
   display:inline-block;
@@ -197,23 +198,88 @@ textarea  {
   border-radius: 4px;
   box-shadow: 4px 4px 7px #5F5F5F;
   margin-bottom:30px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
 
 }
+
+
 #tagged_text  {
   margin:auto;
-  width: 90%
+  width: 90%;
+
 }
 
 #resultTitle  {
     display: none;
     margin: auto;
 
+
+}
+
+section {
+  text-align: center;
+  background: black;
+  margin-top: 20px;
 }
 
 h3  {
   margin: auto;
+  color: white;
 }
 #inputWords{
   margin: auto;
+  text-align: center;
+  margin-bottom: 10px;
 }
-/* types of words, frequency slider*\
+
+.nounInputs, .verbInputs, .adjInputs  {
+  background-color: #F3843D;
+
+
+}
+
+::-webkit-input-placeholder {
+  color: black;
+}
+
+h4  {
+  color: white;
+}
+
+#userWordsSubmit {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+
+  background-color:  #FF5A0A;
+  box-shadow: 3px 3px 5px #5F5F5F;
+  border-radius: 4px;
+}
+
+
+#input_texts  {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1;
+  font-family: 'Roboto', sans-serif;
+
+
+}
+
+#input_text {
+  display: block;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+}
+
+#resultTitle2 {
+  display: none;
+}
+
+#resultTitle3 {
+  display: block;
+  margin: auto;
+}
